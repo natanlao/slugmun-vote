@@ -20,6 +20,15 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
+                {% with messages = get_flashed_messages() %}
+  {% if messages %}
+    <ul class=flashes>
+    {% for message in messages %}
+      <li>{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
                 <p>You are voting as <strong id="countryname">{{ country }}</strong>.</p>
                 <p>When instructed to by the chair, vote using one of the buttons on this page. You will see your vote appear on the screen at the front of the room.</p>
             </div>

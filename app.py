@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flask import Flask, make_response, redirect, render_template, request, session, url_for
+from flask import Flask, flash, redirect, render_template, request, session, url_for
 import flask_socketio
 
 app = Flask(__name__)
@@ -17,7 +17,8 @@ def vote():
         'name': request.form['name']
     }
     socketio.emit('vote', ballot)
-    return '', 204
+    flash('Voted ' + ballot['choice'])
+    return redirect(url_for('serve_ballot'))
 
 
 @app.route('/', methods=['GET', 'POST'])
