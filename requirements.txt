@@ -5,3 +5,4 @@ greenlet==0.4.15
 monotonic==1.5
 python-socketio==2.0.0
 Werkzeug==0.14.1
+gunicorn==19.9.0
